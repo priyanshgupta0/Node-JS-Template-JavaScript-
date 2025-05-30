@@ -11,6 +11,11 @@ const options = {
     servers: [
       {
         url: "http://localhost:5000/api",
+        description: "Local server",
+      },
+      {
+        url: "https://node-js-template-java-script.vercel.app/api",
+        description: "Production server",
       },
     ],
     components: {

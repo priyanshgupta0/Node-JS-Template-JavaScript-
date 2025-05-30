@@ -4,12 +4,15 @@ const app = express();
 const connectDB = require("./config/database");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./config/swagger");
+const cors = require("cors");
 
 // Load environment variables
 require("dotenv").config();
 
 // Connect to MongoDB
 connectDB();
+
+app.use(cors());
 
 // Middleware to parse JSON requests
 app.use(express.json());
