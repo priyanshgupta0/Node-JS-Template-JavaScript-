@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 const connectDB = require("./config/database");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./config/swagger");
 
 // Load environment variables
 require("dotenv").config();
@@ -20,6 +22,8 @@ app.use("/api", routes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Start the server
 const PORT = process.env.PORT || 5000;
